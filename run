@@ -1,0 +1,1 @@
+./gradlew build && java -jar build/libs/serinus-0.0.1.jar --Xmx128m

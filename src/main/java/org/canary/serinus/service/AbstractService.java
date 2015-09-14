@@ -33,6 +33,7 @@ public abstract class AbstractService<Model> implements Controller.Service {
     }
 
     // search
+    @SuppressWarnings("unchecked")
     @Transactional(readOnly = true)
     public List<Object> searchModels(final Map<String,
         Object> searchParameters) {
@@ -87,6 +88,7 @@ public abstract class AbstractService<Model> implements Controller.Service {
         return model;
     }
 
+    @SuppressWarnings("unchecked")
     @Transactional(readOnly = true)
     public List<Object> getModels() {
 
@@ -241,6 +243,7 @@ public abstract class AbstractService<Model> implements Controller.Service {
 
         LOGGER.debug("getLightweightModel[model=" + model + "]");
 
+        @SuppressWarnings("unchecked")
         final Class<Model> clazz = (Class<Model>) model.getClass();
         final Field[] fields = clazz.getDeclaredFields();
         final Map<String, Object> lightweightModelMap =

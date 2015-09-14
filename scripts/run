@@ -1,1 +1,1 @@
-scripts/build && java -jar build/libs/serinus-0.0.1.jar --Xmx128m
+scripts/build && java -Xmx64m -XX:MaxPermSize=64m -jar build/libs/serinus-0.0.1.jar

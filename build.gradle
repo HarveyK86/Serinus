@@ -40,6 +40,10 @@ dependencies {
     testCompile("org.mockito:mockito-all:1.10.19")
 }
 
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:unchecked"
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = "2.3"
 }

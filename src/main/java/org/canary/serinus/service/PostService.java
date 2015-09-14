@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.canary.serinus.model.Post;
 import org.canary.serinus.repository.Repository;
@@ -95,7 +96,7 @@ public class PostService extends AbstractService<Post> {
 
         final Post persisted = this.get(post.getId());
 
-        if(StringUtils.isNotBlank(post.getTitle()) {
+        if(StringUtils.isNotBlank(post.getTitle())) {
             persisted.setTitle(post.getTitle());
         }
 

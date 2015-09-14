@@ -28,6 +28,7 @@ public class Repository {
         LOGGER.info("constructed");
     }
 
+    @SuppressWarnings("unchecked")
     public <Model> List<Model> search(final Class<Model> clazz,
         final Map<String, Object> parameters) {
 
@@ -68,6 +69,8 @@ public class Repository {
         LOGGER.info("get[clazz=" + clazz + ", id=" + id + "]");
 
         final Session session = this.getSession();
+
+        @SuppressWarnings("unchecked")
         final Model model = (Model) session.get(clazz, id);
 
         LOGGER.debug("get[clazz=" + clazz + ", id=" + id + ", returns="

@@ -35,8 +35,8 @@ public abstract class AbstractService<Model> implements Controller.Service {
     // search
     @SuppressWarnings("unchecked")
     @Transactional(readOnly = true)
-    public List<Object> searchModels(final Map<String,
-        Object> searchParameters) {
+    public List<Object> searchModels(
+        final Map<String, Object> searchParameters) {
 
         LOGGER.info("searchModels[searchParameters=" + searchParameters + "]");
 
@@ -203,7 +203,7 @@ public abstract class AbstractService<Model> implements Controller.Service {
         return this.repository;
     }
 
-    private Model getModel(final Map<String, Object> modelMap) {
+    protected Model getModel(final Map<String, Object> modelMap) {
 
         LOGGER.debug("getModel[modelMap=" + modelMap + "]");
 

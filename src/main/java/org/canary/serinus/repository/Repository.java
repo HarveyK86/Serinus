@@ -35,6 +35,12 @@ public class Repository {
         LOGGER.info("search[clazz=" + clazz + ", parameters="
             + parameters + "]");
 
+        if(clazz == null || parameters == null) {
+
+            throw new IllegalArgumentException("Illegal argument; clazz and "
+                + "parameters cannot be null.");
+        }
+
         final Session session = this.getSession();
         final Criteria criteria = session.createCriteria(clazz);
         final List<Model> models;
@@ -57,6 +63,12 @@ public class Repository {
 
         LOGGER.info("save[model=" + model + "]");
 
+        if(model == null) {
+
+            throw new IllegalArgumentException("Illegal argument; model cannot "
+                + "be null.");
+        }
+
         final Session session = this.getSession();
         final int modelId = (int) session.save(model);
 
@@ -67,6 +79,12 @@ public class Repository {
     public <Model> Model get(final Class<Model> clazz, final int id) {
 
         LOGGER.info("get[clazz=" + clazz + ", id=" + id + "]");
+
+        if(clazz == null) {
+
+            throw new IllegalArgumentException("Illegal argument; clazz cannot "
+                + "be null.");
+        }
 
         final Session session = this.getSession();
 
@@ -83,6 +101,12 @@ public class Repository {
 
         LOGGER.info("getAll[clazz=" + clazz + "]");
 
+        if(clazz == null) {
+
+            throw new IllegalArgumentException("Illegal argument; clazz cannot "
+                + "be null.");
+        }
+
         final List<Model> models = this.search(clazz,
             new HashMap<String, Object>());
 
@@ -94,6 +118,12 @@ public class Repository {
 
         LOGGER.info("update[model=" + model + "]");
 
+        if(model == null) {
+
+            throw new IllegalArgumentException("Illegal argument; model cannot "
+                + "be null.");
+        }
+
         final Session session = this.getSession();
 
         session.update(model);
@@ -102,6 +132,12 @@ public class Repository {
     public void delete(final Object model) {
 
         LOGGER.info("update[model=" + model + "]");
+
+        if(model == null) {
+
+            throw new IllegalArgumentException("Illegal argument; model cannot "
+                + "be null.");
+        }
 
         final Session session = this.getSession();
 

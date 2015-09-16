@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite
+    PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+    "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<urlrewrite>
+
+    <!-- Welcome File -->
+    <rule>
+        <from>^/$</from>
+        <to type="permanent-redirect">%{context-path}/index</to>
+    </rule>
+
+    <!-- Index Page -->
+    <rule>
+        <from>^/index(.*)$</from>
+        <to type="proxy">https://crithagra-harveyk86.c9.io/index.html$1</to>
+    </rule>
+
+    <!-- CSS -->
+    <rule>
+        <from>^/css/(.*)$</from>
+        <to type="proxy">https://crithagra-harveyk86.c9.io/css/$1</to>
+    </rule>
+
+    <!--  Fonts -->
+    <rule>
+        <from>^/fonts/(.*)$</from>
+        <to type="proxy">https://crithagra-harveyk86.c9.io/fonts/$1</to>
+    </rule>
+
+    <!--  JavaScript -->
+    <rule>
+        <from>^/js/(.*)$</from>
+        <to type="proxy">https://crithagra-harveyk86.c9.io/js/$1</to>
+    </rule>
+
+    <!--  Templates -->
+    <rule>
+        <from>^/templates/(.*)$</from>
+        <to type="proxy">https://crithagra-harveyk86.c9.io/templates/$1</to>
+    </rule>
+
+</urlrewrite>

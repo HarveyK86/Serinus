@@ -37,7 +37,7 @@ public final class Controller {
 
     // search
     @RequestMapping(method = RequestMethod.POST,
-                    value = "/{model}/search")
+                    value = "/api/{model}/search")
     public List<Object> postSearch(
 
         @PathVariable("model")
@@ -63,7 +63,7 @@ public final class Controller {
 
     // create
     @RequestMapping(method = RequestMethod.POST,
-                    value = "/{model}")
+                    value = "/api/{model}")
     public Object post(
 
         @PathVariable("model")
@@ -87,7 +87,7 @@ public final class Controller {
 
     // read
     @RequestMapping(method = RequestMethod.GET,
-                    value = "/{model}/{id}")
+                    value = "/api/{model}/{id}")
     public Object get(
 
         @PathVariable("model")
@@ -109,7 +109,7 @@ public final class Controller {
     }
 
     @RequestMapping(method = RequestMethod.GET,
-                    value = "/{model}")
+                    value = "/api/{model}")
     public List<Object> get(
 
         @PathVariable("model")
@@ -128,7 +128,7 @@ public final class Controller {
     }
 
     @RequestMapping(method = RequestMethod.GET,
-                    value = "/{model}/head/{id}")
+                    value = "/api/{model}/head/{id}")
     public Object getHead(
 
         @PathVariable("model")
@@ -150,7 +150,7 @@ public final class Controller {
     }
 
     @RequestMapping(method = RequestMethod.GET,
-                    value = "/{model}/head")
+                    value = "/api/{model}/head")
     public Object getHead(
 
         @PathVariable("model")
@@ -171,7 +171,7 @@ public final class Controller {
 
     // update
     @RequestMapping(method = RequestMethod.PUT,
-                    value = "/{model}/{id}")
+                    value = "/api/{model}/{id}")
     public Object put(
 
         @PathVariable("model")
@@ -196,7 +196,7 @@ public final class Controller {
     }
 
     @RequestMapping(method = RequestMethod.PATCH,
-                    value = "/{model}/{id}")
+                    value = "/api/{model}/{id}")
     public Object patch(
 
         @PathVariable("model")
@@ -223,7 +223,7 @@ public final class Controller {
 
     // delete
     @RequestMapping(method = RequestMethod.DELETE,
-                    value = "/{model}/{id}")
+                    value = "/api/{model}/{id}")
     public void delete(
 
         @PathVariable("model")

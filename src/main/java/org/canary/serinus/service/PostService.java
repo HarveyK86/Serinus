@@ -1,5 +1,6 @@
 package org.canary.serinus.service;
 
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,7 +47,12 @@ public class PostService extends AbstractService<Post> {
         LOGGER.info("create[post=" + post + "]");
 
         final Repository repository = super.getRepository();
-        final int postId = repository.save(post);
+        final Date created = new Date();
+        final int postId;
+
+        post.setCreated(created);
+        post.setEdited(null);
+        postId = repository.save(post);
 
         LOGGER.debug("create[post=" + post + ", returns=" + postId + "]");
         return postId;
@@ -84,9 +90,15 @@ public class PostService extends AbstractService<Post> {
 
         LOGGER.info("override[post=" + post + "]");
 
+        final Post persisted = this.get(post.getId());
+        final Date edited = new Date();
         final Repository repository = super.getRepository();
 
-        repository.update(post);
+        persisted.setTitle(post.getTitle());
+        persisted.setBody(post.getBody());
+        persisted.setEdited(edited);
+
+        repository.update(persisted);
     }
 
     @Transactional

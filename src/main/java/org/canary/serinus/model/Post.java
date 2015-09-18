@@ -1,5 +1,6 @@
 package org.canary.serinus.model;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +28,12 @@ public final class Post {
     @Column(name = "Body")
     private String body;
 
+    @Column(name = "Created")
+    private long created;
+
+    @Column(name = "Edited")
+    private long edited;
+
     public Post() {
         super();
     }
@@ -53,6 +60,34 @@ public final class Post {
 
     public void setBody(final String body) {
         this.body = body;
+    }
+
+    public long getCreated() {
+        return this.created;
+    }
+
+    public void setCreated(final long created) {
+        this.created = created;
+    }
+
+    public void setCreated(final Date created) {
+        if(created != null) {
+            this.created = created.getTime();
+        }
+    }
+
+    public long getEdited() {
+        return this.edited;
+    }
+
+    public void setEdited(final long edited) {
+        this.edited = edited;
+    }
+
+    public void setEdited(final Date edited) {
+        if(edited != null) {
+            this.edited = edited.getTime();
+        }
     }
 
 }

@@ -14,4 +14,4 @@ This will generate;
 
 To use this project run;
 
-1. `./run.sh`
+1. `./scripts/run.sh`
